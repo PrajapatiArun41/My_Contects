@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <title>My Contacts</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">
+            My Contacts
+        </h1>
+        <input type="text" id="filterInput" placeholder="Search Name...">
+        <ul id="names" class="collection with-header">
+            <li class="collection-header">
+                <h5>A</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Abe</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Arun</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Alan</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adem</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>B</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bank</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Babu</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">BOB Bank</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bred</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>C</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Car repair</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Carry</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Care</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">can not</a>
+            </li>
+
+        </ul>
+    </div>
+    <script>
+        //Get Input element
+        let filterInput = document.getElementById('filterInput');
+        //Add event listener
+        filterInput.addEventListener('keyup', filterNames);
+
+
+        function filterNames(){
+            //Get value of input
+            let filterValue = document.getElementById('filterInput').value.toUpperCase();
+            
+            //get names ui
+            let ul = document.getElementById('names');
+            //get ;is from ul
+            let li = ul.querySelectorAll('li.collection-item');
+
+            // loop through collection-item lis
+            for(i = 0; i<=li.length; i++) {
+             let a = li[i].getElementsByTagName('a')[0];
+             //If matched
+             if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+                li[i].style.display='';
+             } else {
+                li[i].style.display='none';
+             }
+            }
+
+        }
+    </script>
+</body>
+</html>
